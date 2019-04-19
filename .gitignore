@@ -16,3 +16,4 @@
 /app/jiagu-apk1.gradle
 /app/pack-release.gradle
 /reinforce/.cache
+/reinforce/jiagu.db
