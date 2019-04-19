@@ -77,7 +77,7 @@ android {
         baidu {
             applicationId "com.jason.test_baidu"
             versionCode 2
-            versionName "1.0.2"
+            versionName "1.0.1"
             signingConfig signingConfigs.baidu
 
             String qq_id = '"two123456789"'
@@ -89,7 +89,7 @@ android {
         yingyongbao {
             applicationId "com.jason.test_yingyongbao"
             versionCode 3
-            versionName "1.0.3"
+            versionName "1.0.1"
             signingConfig signingConfigs.yingyongbao
 
             String qq_id = '"three123456789"'

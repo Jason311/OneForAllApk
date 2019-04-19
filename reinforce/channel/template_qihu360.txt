@@ -1,1 +1,2 @@
+#360应用平台
 UMENG_CHANNEL qihu360 1
