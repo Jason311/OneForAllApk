@@ -61,42 +61,42 @@ android {
             buildConfigField "String", "WX_ID", '"one--abcdefghijklmnopqrst"' // 微信 appId
             buildConfigField "String", "LOGOURL", '"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2374702328,3613689769&fm=27&gp=0.jpg"'
         }
-
-        qihu360 {
-            applicationId "com.jason.test_qihu360"
-            versionCode 1
-            versionName "1.0.1"
-            signingConfig signingConfigs.qihu360
-
-            String qq_id = '"one123456789"'
-            buildConfigField "String", "QQ_ID", qq_id // qq appId
-            buildConfigField "String", "WX_ID", '"one--abcdefghijklmnopqrst"' // 微信 appId
-            buildConfigField "String", "LOGOURL", '"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2374702328,3613689769&fm=27&gp=0.jpg"'
-        }
-
-        baidu {
-            applicationId "com.jason.test_baidu"
-            versionCode 2
-            versionName "1.0.2"
-            signingConfig signingConfigs.baidu
-
-            String qq_id = '"two123456789"'
-            buildConfigField "String", "QQ_ID", qq_id // qq appId
-            buildConfigField "String", "WX_ID", '"two--abcdefghijklmnopqrst"' // 微信 appId
-            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2072087045,227865347&fm=27&gp=0.jpg"'
-        }
-
-        yingyongbao {
-            applicationId "com.jason.test_yingyongbao"
-            versionCode 3
-            versionName "1.0.3"
-            signingConfig signingConfigs.yingyongbao
-
-            String qq_id = '"three123456789"'
-            buildConfigField "String", "QQ_ID", qq_id // qq appId
-            buildConfigField "String", "WX_ID", '"three--abcdefghijklmnopqrst"' // 微信 appId
-            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
-        }
+//
+//        qihu360 {
+//            applicationId "com.jason.test_qihu360"
+//            versionCode 1
+//            versionName "1.0.1"
+//            signingConfig signingConfigs.qihu360
+//
+//            String qq_id = '"one123456789"'
+//            buildConfigField "String", "QQ_ID", qq_id // qq appId
+//            buildConfigField "String", "WX_ID", '"one--abcdefghijklmnopqrst"' // 微信 appId
+//            buildConfigField "String", "LOGOURL", '"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2374702328,3613689769&fm=27&gp=0.jpg"'
+//        }
+//
+//        baidu {
+//            applicationId "com.jason.test_baidu"
+//            versionCode 2
+//            versionName "1.0.2"
+//            signingConfig signingConfigs.baidu
+//
+//            String qq_id = '"two123456789"'
+//            buildConfigField "String", "QQ_ID", qq_id // qq appId
+//            buildConfigField "String", "WX_ID", '"two--abcdefghijklmnopqrst"' // 微信 appId
+//            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2072087045,227865347&fm=27&gp=0.jpg"'
+//        }
+//
+//        yingyongbao {
+//            applicationId "com.jason.test_yingyongbao"
+//            versionCode 3
+//            versionName "1.0.3"
+//            signingConfig signingConfigs.yingyongbao
+//
+//            String qq_id = '"three123456789"'
+//            buildConfigField "String", "QQ_ID", qq_id // qq appId
+//            buildConfigField "String", "WX_ID", '"three--abcdefghijklmnopqrst"' // 微信 appId
+//            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
+//        }
     }
 
     //test-v1.0.1-vivo-release-2019-04-17-16.21.apk

@@ -13,3 +13,6 @@
 .externalNativeBuild
 *.log
 /app/*.log
+/reinforce/jiagu.db
+/app/jiagu-apk1.gradle
+/app/pack-release.gradle
