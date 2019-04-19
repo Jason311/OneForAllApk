@@ -1,0 +1,151 @@
+apply plugin: 'com.android.application'
+//依赖多渠道打包、加固脚本
+apply from: 'jiagu-apk.gradle'
+//依赖上传蒲公英脚本
+apply from: 'upload-apk.gradle'
+
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd-HH.mm", TimeZone.getTimeZone("GMT+8"))
+}
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.jason.test"
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        pgyer {
+            storeFile file("../key/one.jks")
+            storePassword "123456"
+            keyAlias "oneforallapk"
+            keyPassword "123456"
+        }
+
+        qihu360 {
+            storeFile file("../key/one.jks")
+            storePassword "123456"
+            keyAlias "oneforallapk"
+            keyPassword "123456"
+        }
+
+        baidu {
+            storeFile file("../key/two.jks")
+            storePassword "123456"
+            keyAlias "oneforallapk"
+            keyPassword "123456"
+        }
+
+        yingyongbao {
+            storeFile file("../key/three.jks")
+            storePassword "123456"
+            keyAlias "oneforallapk"
+            keyPassword "123456"
+        }
+    }
+    flavorDimensions "default"
+    productFlavors {
+        pgyer {
+            applicationId "com.jason.test_pgyer"
+            versionCode 1
+            versionName "1.0.1"
+            signingConfig signingConfigs.pgyer
+
+            String qq_id = '"one123456789"'
+            buildConfigField "String", "QQ_ID", qq_id // qq appId
+            buildConfigField "String", "WX_ID", '"one--abcdefghijklmnopqrst"' // 微信 appId
+            buildConfigField "String", "LOGOURL", '"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2374702328,3613689769&fm=27&gp=0.jpg"'
+        }
+
+        qihu360 {
+            applicationId "com.jason.test_qihu360"
+            versionCode 1
+            versionName "1.0.1"
+            signingConfig signingConfigs.qihu360
+
+            String qq_id = '"one123456789"'
+            buildConfigField "String", "QQ_ID", qq_id // qq appId
+            buildConfigField "String", "WX_ID", '"one--abcdefghijklmnopqrst"' // 微信 appId
+            buildConfigField "String", "LOGOURL", '"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2374702328,3613689769&fm=27&gp=0.jpg"'
+        }
+
+        baidu {
+            applicationId "com.jason.test_baidu"
+            versionCode 2
+            versionName "1.0.2"
+            signingConfig signingConfigs.baidu
+
+            String qq_id = '"two123456789"'
+            buildConfigField "String", "QQ_ID", qq_id // qq appId
+            buildConfigField "String", "WX_ID", '"two--abcdefghijklmnopqrst"' // 微信 appId
+            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2072087045,227865347&fm=27&gp=0.jpg"'
+        }
+
+        yingyongbao {
+            applicationId "com.jason.test_yingyongbao"
+            versionCode 3
+            versionName "1.0.3"
+            signingConfig signingConfigs.yingyongbao
+
+            String qq_id = '"three123456789"'
+            buildConfigField "String", "QQ_ID", qq_id // qq appId
+            buildConfigField "String", "WX_ID", '"three--abcdefghijklmnopqrst"' // 微信 appId
+            buildConfigField "String", "LOGOURL", '"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3117066670,3759738700&fm=27&gp=0.jpg"'
+        }
+    }
+
+    //test-v1.0.1-vivo-release-2019-04-17-16.21.apk
+    applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+//                outputFileName = "${variant.productFlavors[0].name}-v${variant.productFlavors[0].versionName}-${releaseTime()}.apk"
+                outputFileName = "test-v" + variant.productFlavors[0].versionName + "-" + variant.productFlavors[0].name + "-" +
+                        variant.buildType.name + ".apk"
+//                + "-" + releaseTime()
+            }
+    }
+
+//    applicationVariants.all {
+//        variant ->
+//            variant.outputs.all {
+//                outputFileName = "hilife" + ".apk"
+//            }
+//    }
+
+    buildTypes {
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            signingConfig null
+            minifyEnabled true
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            signingConfig null
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+}
